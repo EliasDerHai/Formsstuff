@@ -1,0 +1,12 @@
+:host {
+  div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50px 50px 50px 30px 30px 30px;
+    padding-bottom: 2em;
+  }
+
+  button {
+    margin: 2em
+  }
+}

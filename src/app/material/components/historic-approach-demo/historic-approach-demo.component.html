@@ -1,0 +1,31 @@
+<div>
+
+  <label for="preName">Vorname</label>
+  <input id="preName">
+
+  <label for="lastName">Nachname</label>
+  <input id="lastName">
+
+  <label>Geboren</label>
+  <div></div>
+
+  <label for="year">Jahr</label>
+  <select id="year">
+    <option *ngFor="let year of yearOptions" [value]="year">{{year}}</option>
+  </select>
+
+  <label for="month">Monat</label>
+  <select (change)="setDayOptions()" id="month">
+    <option *ngFor="let month of monthsOptions" [value]="month">{{month}}</option>
+  </select>
+
+  <label for="day">Tag</label>
+  <select id="day">
+    <option *ngFor="let day of dayOptions" [value]="day">{{day}}</option>
+  </select>
+
+
+</div>
+
+<button (click)="save()" mat-button>Save</button>
+<span>{{getResult()}}</span>
