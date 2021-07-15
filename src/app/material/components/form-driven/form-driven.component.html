@@ -1,0 +1,41 @@
+<form [formGroup]="formGroup">
+
+  <div class="grid">
+
+    <label for="preName">Vorname</label>
+    <input formControlName="preName" id="preName">
+
+    <label for="lastName">Nachname</label>
+    <input formControlName="lastName" id="lastName">
+
+    <label>Geboren</label>
+    <div></div>
+
+    <label for="year">Jahr</label>
+    <select formControlName="year" id="year">
+      <option *ngFor="let year of yearOptions" [value]="year">{{year}}</option>
+    </select>
+
+    <label for="month">Monat</label>
+    <select (change)="setDayOptions()" formControlName="month" id="month">
+      <option *ngFor="let month of monthsOptions" [value]="month">{{month}}</option>
+    </select>
+
+    <label for="day">Tag</label>
+    <select formControlName="day" id="day">
+      <option *ngFor="let day of dayOptions" [value]="day">{{day}}</option>
+    </select>
+  </div>
+
+
+  <p>{{getResult()}}</p>
+  <p *ngIf="!formGroup.valid" style="color: red; white-space: pre-wrap;">{{getErrors()}}</p>
+
+
+  <button (click)="convert()" [disabled]="!formGroup.valid" mat-button type="submit">Save</button>
+  <button (click)="toggleDisable()" mat-button>Toggle Disable</button>
+  <button (click)="log()" mat-button>Log model</button>
+
+</form>
+
+<p *ngIf="converted?.length>0">Sending to Server: {{converted}}</p>

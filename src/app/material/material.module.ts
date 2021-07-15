@@ -33,10 +33,16 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatButtonModule} from '@angular/material/button';
 import {HistoricApproachDemoComponent} from './components/historic-approach-demo/historic-approach-demo.component';
+import {TemplateDrivenComponent} from './components/template-driven/template-driven.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormDrivenComponent} from './components/form-driven/form-driven.component';
+import {RatingInputComponent} from './components/rating-input/rating-input.component';
+import {FormDrivenWithCvaComponent} from './components/form-driven-with-cva/form-driven-with-cva.component';
+import {TemplateDrivenCvaComponent} from './components/template-driven-cva/template-driven-cva.component';
 
 
 @NgModule({
-  declarations: [HistoricApproachDemoComponent],
+  declarations: [HistoricApproachDemoComponent, TemplateDrivenComponent, FormDrivenComponent, RatingInputComponent, FormDrivenWithCvaComponent, TemplateDrivenCvaComponent],
   imports: [
     CommonModule,
 
@@ -71,7 +77,9 @@ import {HistoricApproachDemoComponent} from './components/historic-approach-demo
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -105,7 +113,11 @@ import {HistoricApproachDemoComponent} from './components/historic-approach-demo
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    HistoricApproachDemoComponent
+    HistoricApproachDemoComponent,
+    TemplateDrivenComponent,
+    FormDrivenComponent,
+    FormDrivenWithCvaComponent,
+    TemplateDrivenCvaComponent
   ]
 })
 export class MaterialModule {

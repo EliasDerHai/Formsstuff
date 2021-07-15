@@ -4,15 +4,11 @@
   margin: auto;
   padding-top: 4em;
 
-  div {
+  .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 50px 50px 50px 30px 30px 30px;
     padding-bottom: 2em;
     grid-row-gap: 1em;
-  }
-
-  button {
-    margin: 2em
   }
 }

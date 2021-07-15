@@ -1,15 +1,20 @@
 import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-historic-approach-demo',
-  templateUrl: './historic-approach-demo.component.html',
-  styleUrls: ['./historic-approach-demo.component.scss']
+  selector: 'app-template-driven',
+  templateUrl: './template-driven.component.html',
+  styleUrls: ['./template-driven.component.scss']
 })
-export class HistoricApproachDemoComponent implements OnInit {
+export class TemplateDrivenComponent implements OnInit {
+
+  model: any = {};
+
   dayOptions: number[];
   monthsOptions: number[];
   yearOptions: number[];
-  model: any = {};
+
+  converted: string;
+  disabled = false;
 
   ngOnInit() {
     this.setYearOptions();
@@ -32,7 +37,7 @@ export class HistoricApproachDemoComponent implements OnInit {
 
 
   setDayOptions() {
-    let month = (document.getElementById('month') as any)?.value;
+    let month = this.model.birthYear;
 
     if (!month) {
       month = 1;
@@ -51,16 +56,19 @@ export class HistoricApproachDemoComponent implements OnInit {
     this.dayOptions = options;
   }
 
-  save() {
-    this.model.preName = (document.getElementById('preName') as any).value;
-    this.model.lastName = (document.getElementById('lastName') as any).value;
-    const birthYear = (document.getElementById('year') as any).value;
-    const birthMonth = (document.getElementById('month') as any).value;
-    const birthDay = (document.getElementById('day') as any).value;
-    this.model.birthDate = new Date(Date.UTC(birthYear, birthMonth - 1, birthDay));
-  }
-
   getResult() {
     return JSON.stringify(this.model);
+  }
+
+  convert() {
+    const converted: any = {};
+    converted.preName = this.model.preName;
+    converted.lastName = this.model.lastName;
+    converted.birth = new Date(Date.UTC(this.model.birthYear, this.model.birthMonth - 1, this.model.birthDay));
+    this.converted = JSON.stringify(converted);
+  }
+
+  onInvalid($event: Event) {
+    console.log($event);
   }
 }

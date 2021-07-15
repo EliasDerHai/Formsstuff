@@ -1,0 +1,8 @@
+<span (click)="rate(i + (starred ? (value > i + 1 ? 1 : 0) : 1))"
+      *ngFor="let starred of stars; let i = index">
+<ng-container *ngIf="starred; else noStar">⭐</ng-container>
+<ng-template #noStar>·</ng-template>
+</span>
+
+<p *ngIf="isGreat()">That's my attidude</p>
+<p *ngIf="isGarbage()">Ich mach bei so nem Scheiß ned mit</p>
